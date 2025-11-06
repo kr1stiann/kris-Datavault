@@ -1,0 +1,32 @@
+services:
+  web:
+    build: .
+    container_name: flask_web
+    ports:
+      - "5001:5000" # extern:intern (5001 på din Mac)
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./app:/app/app # valfritt för dev: hot reload av koden
+    command: >
+      sh -c "python -m flask --app app.app run --host=0.0.0.0 --port=5000"
+
+  db:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 15
+
+volumes:
+  pg_data:

@@ -1,0 +1,59 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.log
+*.pot
+*.pyc
+*.pkl
+*.sqlite3
+
+# Virtualenvs
+
+.venv/
+venv/
+ENV/
+env.bak/
+env/
+
+# --- IDE/Editor ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# --- Docker ---
+# Docker build cache and volumes
+**/.dockerignore
+**/Dockerfile.*
+docker-compose.override.yml
+# Named volumes and other runtime data shouldn't be committed
+pg_data/
+postgres_data/
+*.pid
+
+# --- System / OS ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+Icon?
+
+# --- Byte-compiled / cache ---
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+.tox/
+.mypy_cache/
+pytestdebug.log
+
+# --- Secrets ---
+.env
+*.key
+*.pem
