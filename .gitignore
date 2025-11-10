@@ -13,26 +13,30 @@ __pycache__/
 *.pkl
 *.sqlite3
 
-# Virtualenvs
-
+# --- Virtualenvs ---
+.env/
 .venv/
 venv/
 ENV/
 env.bak/
 env/
+env*/           # sometimes people name envs like env1, env2
 
-# --- IDE/Editor ---
+# --- Flask / Instance ---
+instance/
+*.db
+
+# --- IDE / Editors ---
 .vscode/
 .idea/
 *.swp
 .DS_Store
 
 # --- Docker ---
-# Docker build cache and volumes
+# Ignore Docker build cache, overrides, and volumes
 **/.dockerignore
 **/Dockerfile.*
 docker-compose.override.yml
-# Named volumes and other runtime data shouldn't be committed
 pg_data/
 postgres_data/
 *.pid
@@ -40,11 +44,10 @@ postgres_data/
 # --- System / OS ---
 Thumbs.db
 Desktop.ini
-.DS_Store
 Icon?
+.DS_Store
 
-# --- Byte-compiled / cache ---
-__pycache__/
+# --- Coverage / Test ---
 .pytest_cache/
 .coverage
 htmlcov/
@@ -57,3 +60,7 @@ pytestdebug.log
 .env
 *.key
 *.pem
+
+# --- Alembic ---
+migrations/versions/*.pyc
+migrations/__pycache__/

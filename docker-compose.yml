@@ -3,15 +3,13 @@ services:
     build: .
     container_name: flask_web
     ports:
-      - "5001:5000" # extern:intern (5001 på din Mac)
+      - "5001:5001" # extern:intern (5001 på din Mac)
     env_file: .env
     depends_on:
       db:
         condition: service_healthy
     volumes:
-      - ./app:/app/app # valfritt för dev: hot reload av koden
-    command: >
-      sh -c "python -m flask --app app.app run --host=0.0.0.0 --port=5000"
+      - .:/app # valfritt för dev: hot reload av koden
 
   db:
     image: postgres:16-alpine

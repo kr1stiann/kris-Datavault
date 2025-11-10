@@ -12,8 +12,9 @@ def create_app():
     db_name = os.getenv("POSTGRES_DB", "appdb")
 
     app.config["SQLALCHEMY_DATABASE_URI"] = (
-        f"postgresql+psycopg2://{db_user}:{db_pwd}@{db_host}:5432/{db_name}"
-    )
+    f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}@db:5432/{os.getenv('POSTGRES_DB')}"
+)
+
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db.init_app(app)
