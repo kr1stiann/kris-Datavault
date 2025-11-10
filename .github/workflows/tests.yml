@@ -29,7 +29,7 @@ jobs:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: appdb
       POSTGRES_HOST: localhost
-      PYTHONPATH: ./app
+      PYTHONPATH: .
 
     steps:
       - name: Checkout repository
