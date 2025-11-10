@@ -54,4 +54,4 @@ jobs:
           done
 
       - name: Run tests
-        run: pytest -v
+        run: pytest -v tests/
