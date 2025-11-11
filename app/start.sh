@@ -21,4 +21,5 @@ EOF
 
 
 echo "🚀 Starting Flask app..."
-flask --app app/app.py run --host=0.0.0.0 --port=5001
+flask --app app/app.py run --host=0.0.0.0 --port=${PORT:-5001}
+
