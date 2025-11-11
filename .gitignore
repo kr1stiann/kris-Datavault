@@ -1,66 +1,25 @@
-# --- Python ---
+# Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-*.so
-*.egg
-*.egg-info/
-.eggs/
-*.log
-*.pot
-*.pyc
-*.pkl
-*.sqlite3
-
-# --- Virtualenvs ---
-.env/
-.venv/
 venv/
-ENV/
-env.bak/
-env/
-env*/           # sometimes people name envs like env1, env2
+.env
 
-# --- Flask / Instance ---
-instance/
-*.db
+# Flask / Database
+pg_data/
+migrations/versions/__pycache__/
 
-# --- IDE / Editors ---
+# Node / React
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Logs
+*.log
+
+# OS / Editor
+.DS_Store
 .vscode/
 .idea/
-*.swp
-.DS_Store
 
-# --- Docker ---
-# Ignore Docker build cache, overrides, and volumes
-**/.dockerignore
-**/Dockerfile.*
-docker-compose.override.yml
-pg_data/
-postgres_data/
-*.pid
-
-# --- System / OS ---
-Thumbs.db
-Desktop.ini
-Icon?
-.DS_Store
-
-# --- Coverage / Test ---
-.pytest_cache/
-.coverage
-htmlcov/
-.cache/
-.tox/
-.mypy_cache/
-pytestdebug.log
-
-# --- Secrets ---
-.env
-*.key
-*.pem
-
-# --- Alembic ---
-migrations/versions/*.pyc
-migrations/__pycache__/
+# Misc
+*.sqlite3

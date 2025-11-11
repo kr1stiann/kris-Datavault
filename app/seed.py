@@ -1,13 +1,20 @@
 from app.models import db, Item
 
 def seed_data():
-    if Item.query.count() == 0:
-        demo_items = [
-            Item(name="Server Backup", description="Nightly job", price=49.99),
-            Item(name="Data Analysis", description="Monthly insights", price=149.00),
-        ]
-        db.session.add_all(demo_items)
-        db.session.commit()
-        print("Database seeded with demo items.")
-    else:
-        print("Database already seeded.")
+    """Populate the database with some example items if empty."""
+    if Item.query.count() > 0:
+        print("Database already seeded — skipping.")
+        return
+
+    print("Seeding database with initial data...")
+
+    items = [
+        Item(title="Server Backup", description="Nightly backup job", price=49.99),
+        Item(title="Data Sync", description="Cloud replication service", price=29.99),
+        Item(title="Monitoring", description="24/7 uptime monitoring", price=19.99),
+    ]
+
+    db.session.add_all(items)
+    db.session.commit()
+
+    print("Database seeded successfully.")
