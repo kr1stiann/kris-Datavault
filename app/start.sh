@@ -20,6 +20,7 @@ with app.app_context():
 EOF
 
 
-echo "🚀 Starting Flask app..."
-flask --app app/app.py run --host=0.0.0.0 --port=${PORT:-5001}
+echo " Starting Flask app..."
+flask --app app.app run --host=0.0.0.0 --port=${PORT:-5001}
+
 
